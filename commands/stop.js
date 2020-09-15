@@ -9,7 +9,7 @@ module.exports = {
 	},
 	run: async (message, bot, args) => {
 		let voiceChannel = message.member.voice.channel;
-		let serverQueue = bot.musicQueue.get(message.guild.id);
+		let serverQueue = bot.queue.get(message.guild.id);
 
 		if (!serverQueue) return message.channel.send('Nothing is playing');
 		serverQueue.songs = [];

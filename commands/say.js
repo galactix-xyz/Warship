@@ -20,8 +20,6 @@ module.exports = {
 
 			return message.channel.send(em).then((m) => m.delete({ timeout: 10000 }));
 		}
-		let em = new MessageEmbed().setColor('#0088ff').setDescription(args.join(' '));
-
-		message.channel.send(em);
+		message.channel.send(args.join(' '));
 	}
 };

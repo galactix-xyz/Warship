@@ -8,9 +8,11 @@ module.exports = {
 		description: ''
 	},
 	run: async (message, bot, args) => {
-		let serverQueue = bot.musicQueue.get(message.guild.id);
+		let serverQueue = bot.queue.get(message.guild.id);
+
 		if (!serverQueue) return message.channel.send('Nothing is playing');
 		if (!serverQueue.playing) return message.channel.send('Already paused');
+
 		serverQueue.playing = false;
 		serverQueue.connection.dispatcher.pause();
 		message.channel.send('Music is now paused');
